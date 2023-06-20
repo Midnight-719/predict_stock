@@ -1,0 +1,16 @@
+labels 和 y_teset_regression  不符合 
+labels 是怎么生成的
+for index (val,label) in enumrate(test_loader)
+而 test_loader 是一个 数据生成器
+len(test_loader) = 13  13*32= 416  13是index 32是batch_size
+
+通过getdata() 得到 test_datasets_regression 和 test_loader
+
+len(teset_datasets_regression) = 395
+len(test_loader)*batch_size = 416 
+二者不一样 ，  这是为什么
+test_datasets_regression 来自与 test_close  type(teset_datasets_regression) = list
+len(test_close)= 411
+因为test_datasets_regression 是 test_datasets 的标签
+所以 test_datasets_regression 是test_datasets每15个步长的下一个，并且是test_datasets的‘close’数据 滑动得到的
+len(test_dataset) = 39
